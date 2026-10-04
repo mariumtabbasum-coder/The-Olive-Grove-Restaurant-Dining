@@ -1,0 +1,6 @@
+{
+  "name": "The Olive Grove — Restaurant & Dining",
+  "description": "Exquisite fine dining, artisanal signature dishes, and warm hospitality at The Olive Grove.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
