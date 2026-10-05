@@ -17,12 +17,15 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
   children,
 }) => {
   return (
-    <section
-      className="page-hero-banner"
-      style={{
-        backgroundImage: `url('${bgImage}')`,
-      }}
-    >
+    <section className="page-hero-banner">
+      <img
+        src={bgImage}
+        alt=""
+        className="page-hero-bg-img"
+        fetchPriority="high"
+        decoding="async"
+        aria-hidden="true"
+      />
       {/* Dark Emerald Gradient Overlay */}
       <div className="page-hero-overlay" />
 

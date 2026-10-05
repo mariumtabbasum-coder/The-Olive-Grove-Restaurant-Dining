@@ -14,12 +14,15 @@ export const SupportPage: React.FC = () => {
   return (
     <main className="section-cream pb-5">
       {/* Elevated Header Banner with Background Image & Dark Overlay */}
-      <section
-        className="page-hero-banner"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80')`,
-        }}
-      >
+      <section className="page-hero-banner">
+        <img
+          src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1100&q=65"
+          alt=""
+          className="page-hero-bg-img"
+          fetchPriority="high"
+          decoding="async"
+          aria-hidden="true"
+        />
         <div className="page-hero-overlay" />
         <div className="page-hero-leaf-left">
           <BotanicalLeaf color="#d4af37" />

@@ -25,6 +25,7 @@ export interface Chef {
   role: string;
   experience: string;
   image: string;
+  objectPosition?: string;
   rating: number;
   specialty: string;
   bio: string;

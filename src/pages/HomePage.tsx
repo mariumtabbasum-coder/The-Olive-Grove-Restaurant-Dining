@@ -29,6 +29,16 @@ export const HomePage: React.FC = () => {
     <main>
       {/* 1. HERO SECTION — CLEAN FULL BACKGROUND WITH ELEGANT OVERLAY */}
       <section className="hero-home-wrapper">
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=70"
+          alt=""
+          className="hero-home-bg-img"
+          fetchPriority="high"
+          decoding="async"
+          aria-hidden="true"
+        />
+        <div className="hero-home-overlay" />
+
         {/* Decorative Gold Leaf in Top-Left Corner */}
         <div className="page-hero-leaf-left">
           <BotanicalLeaf color="#d4af37" />

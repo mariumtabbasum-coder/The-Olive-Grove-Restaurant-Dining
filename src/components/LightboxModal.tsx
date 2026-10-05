@@ -39,7 +39,6 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
       >
         <button
           className="modal-close-btn"
-          style={{ background: 'rgba(255, 255, 255, 0.2)', color: '#ffffff' }}
           onClick={onClose}
           aria-label="Close lightbox"
         >
@@ -98,7 +97,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           </>
         )}
 
-        <img src={item.image} alt={item.title} />
+        <img src={item.image} alt={item.title} loading="lazy" decoding="async" />
 
         {/* Title shown BELOW the image as required by Section 5 */}
         <div className="lightbox-caption-box">

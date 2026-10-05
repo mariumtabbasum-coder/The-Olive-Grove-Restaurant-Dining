@@ -56,18 +56,11 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 }
 
 /* ========================================================
-   SUBTLE SCROLL-REVEAL ANIMATIONS (MODERN 2026 STANDARDS)
+   SCROLL-REVEAL ANIMATIONS (IMMEDIATELY RESPONSIVE & NON-BLOCKING)
    ======================================================== */
 .reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.65s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: opacity, transform;
-}
-
-.reveal-on-scroll.is-revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -635,19 +628,37 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 
 /* Hero Section (Home) */
 .hero-home-wrapper {
-  background: linear-gradient(
-      180deg,
-      rgba(9, 32, 23, 0.72) 0%,
-      rgba(9, 32, 23, 0.55) 50%,
-      rgba(9, 32, 23, 0.82) 100%
-    ),
-    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat;
+  background-color: var(--color-emerald-deep);
   color: #ffffff;
   padding: 85px 0 80px 0;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--color-gold-border);
   text-align: center;
+}
+
+.hero-home-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-home-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 32, 23, 0.72) 0%,
+    rgba(9, 32, 23, 0.55) 50%,
+    rgba(9, 32, 23, 0.82) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-home-content {
@@ -978,10 +989,19 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   text-align: center;
   color: #ffffff;
   padding: 70px 20px 65px 20px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: var(--color-emerald-deep);
   border-bottom: 1px solid var(--color-gold-border);
+}
+
+.page-hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .page-hero-overlay {
@@ -995,6 +1015,7 @@ h1, h2, h3, h4, .font-serif, .display-heading {
     rgba(9, 32, 23, 0.44) 100%
   );
   z-index: 1;
+  pointer-events: none;
 }
 
 .page-hero-content {
@@ -1167,26 +1188,36 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 
 .modal-close-btn {
   position: absolute;
-  top: 16px;
-  right: 18px;
-  width: 34px;
-  height: 34px;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(9, 32, 23, 0.08);
-  border: none;
-  font-size: 1.4rem;
-  color: var(--color-emerald-deep);
+  background: rgba(9, 32, 23, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
+  color: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-smooth);
-  z-index: 10;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 25;
+  padding: 0;
 }
 
 .modal-close-btn:hover {
-  background: var(--color-gold);
-  color: #ffffff;
+  background: var(--color-gold-bright) !important;
+  border-color: #ffffff !important;
+  color: #092017 !important;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.modal-close-btn:active {
+  transform: scale(0.96);
 }
 
 /* Dish Modal Specific */
@@ -1207,6 +1238,61 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* ========================================================
+   CHEF DETAILS MODAL — NO TOP-CROPPING ACROSS ALL BREAKPOINTS
+   ======================================================== */
+.chef-modal-dialog {
+  max-width: 780px !important;
+  width: 92% !important;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.chef-modal-grid {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.chef-modal-img-col {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background: #092017;
+  overflow: hidden;
+}
+
+.chef-modal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  object-position: center 25%;
+  display: block;
+}
+
+/* Individual chef photo framing overrides for exact face & hat framing */
+.chef-photo-daniel-carter {
+  object-position: center 24% !important;
+}
+.chef-photo-maria-lopez {
+  object-position: center 20% !important;
+}
+.chef-photo-james-wilson {
+  object-position: center 42% !important;
+}
+.chef-photo-elena-rostova {
+  object-position: center 22% !important;
+}
+.chef-photo-marco-bellini {
+  object-position: center 25% !important;
+}
+.chef-photo-camille-laurent {
+  object-position: center 35% !important;
 }
 
 .dish-modal-content-col {
@@ -2179,22 +2265,34 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 }
 
 .ambience-close-btn {
-  background: rgba(255, 255, 255, 0.12);
-  border: none;
+  background: rgba(9, 32, 23, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
   color: #ffffff;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
   flex-shrink: 0;
+  padding: 0;
 }
 
 .ambience-close-btn:hover {
-  background: var(--color-gold);
+  background: var(--color-gold-bright) !important;
+  border-color: #ffffff !important;
+  color: #092017 !important;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.ambience-close-btn:active {
+  transform: scale(0.96);
 }
 
 .ambience-stage-box {
@@ -2445,6 +2543,20 @@ body {
     height: 220px;
     min-height: 200px;
   }
+  .chef-modal-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .chef-modal-img-col {
+    width: 100% !important;
+    height: 420px !important;
+    min-height: 400px !important;
+    max-height: 52vh !important;
+  }
+  .chef-modal-photo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
   .timeline-track::before {
     left: 20px;
   }
@@ -2499,6 +2611,20 @@ body {
   .content-container {
     padding-left: 14px;
     padding-right: 14px;
+  }
+  .chef-modal-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .chef-modal-img-col {
+    width: 100% !important;
+    height: 420px !important;
+    min-height: 400px !important;
+    max-height: 52vh !important;
+  }
+  .chef-modal-photo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 }
 
@@ -2558,4 +2684,180 @@ body {
   .price-item-desc {
     font-size: 0.78rem;
   }
+}
+
+@media (max-width: 680px) {
+  .chef-modal-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .chef-modal-img-col {
+    width: 100% !important;
+    height: 360px !important;
+    min-height: 340px !important;
+    max-height: 50vh !important;
+  }
+  .chef-modal-photo {
+    object-fit: cover !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .chef-modal-img-col {
+    height: 340px !important;
+    min-height: 320px !important;
+  }
+}
+
+/* Contact Page Map Component Styles (Zero Overlap across all breakpoints) */
+.contact-map-card {
+  margin-top: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid #ebd9c2;
+  background: #ffffff;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-map-header {
+  background: rgba(9, 32, 23, 0.96);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-bottom: 1.5px solid var(--color-gold);
+}
+
+.contact-map-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.contact-map-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold-bright);
+  box-shadow: 0 0 8px var(--color-gold-bright);
+  flex-shrink: 0;
+}
+
+.contact-map-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.contact-map-sub {
+  font-size: 0.68rem;
+  color: #c4d7cd;
+  line-height: 1.2;
+}
+
+.contact-map-directions-btn {
+  background: var(--color-gold);
+  color: var(--color-emerald-deep);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  margin-left: auto;
+}
+
+.contact-map-directions-btn:hover {
+  background: var(--color-gold-bright);
+  color: #092017;
+  transform: translateY(-1px);
+}
+
+.contact-map-canvas {
+  position: relative;
+  height: 250px;
+  background: #f4ede1;
+}
+
+.contact-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.contact-map-footer {
+  background: #fdfaf6;
+  padding: 6px 12px;
+  border-top: 1px solid #ebd9c2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+}
+
+.contact-map-coords {
+  color: var(--color-emerald-deep);
+  font-weight: 600;
+}
+
+.contact-map-attr-link {
+  color: var(--color-gold-dark, #8c6e26);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.contact-map-attr-link:hover {
+  color: var(--color-emerald-deep);
+}
+
+/* Contact Page Map Controls */
+.map-custom-zoom-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 5;
+}
+
+.map-zoom-btn {
+  width: 32px;
+  height: 32px;
+  background: #ffffff;
+  color: var(--color-emerald-deep);
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.map-zoom-btn:hover {
+  background: var(--color-gold-bright);
+  color: #092017;
+  transform: scale(1.06);
+}
+
+.map-zoom-btn:active {
+  transform: scale(0.96);
 }

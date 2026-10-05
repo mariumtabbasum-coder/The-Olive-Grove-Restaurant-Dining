@@ -13,17 +13,29 @@ export const ChefModal: React.FC<ChefModalProps> = ({ chef, onClose }) => {
   return (
     <div className="modal-overlay-custom" onClick={onClose} role="dialog" aria-modal="true">
       <div
-        className="modal-dialog-custom"
-        style={{ maxWidth: '750px' }}
+        className="modal-dialog-custom chef-modal-dialog"
+        style={{ maxWidth: '780px' }}
         onClick={(e) => e.stopPropagation()}
       >
         <button className="modal-close-btn" onClick={onClose} aria-label="Close chef details">
           <X size={20} />
         </button>
 
-        <div className="dish-modal-grid">
-          <div className="dish-modal-img-col">
-            <img src={chef.image} alt={chef.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }} />
+        <div className="chef-modal-grid">
+          <div className="chef-modal-img-col">
+            <img
+              src={chef.image}
+              alt={chef.name}
+              className={`chef-modal-photo chef-photo-${chef.id}`}
+              loading="lazy"
+              decoding="async"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: chef.objectPosition || 'center 25%',
+              }}
+            />
           </div>
 
           <div className="dish-modal-content-col">

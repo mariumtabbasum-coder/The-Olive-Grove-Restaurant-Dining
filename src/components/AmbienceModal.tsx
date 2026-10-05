@@ -140,6 +140,8 @@ export const AmbienceModal: React.FC<AmbienceModalProps> = ({ isOpen, onClose })
             src={currentPhoto.url}
             alt={currentPhoto.title}
             className="ambience-stage-img"
+            loading="lazy"
+            decoding="async"
           />
 
           {/* Previous Arrow Button cleanly on left edge */}
@@ -201,6 +203,8 @@ export const AmbienceModal: React.FC<AmbienceModalProps> = ({ isOpen, onClose })
                 <img
                   src={item.url}
                   alt={item.title}
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
             ))}

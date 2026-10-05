@@ -37,7 +37,7 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
       aria-label={`View details for ${dish.name}`}
     >
       <div className="dish-card-image-box">
-        <img src={dish.image} alt={dish.name} loading="lazy" />
+        <img src={dish.image} alt={dish.name} loading="lazy" decoding="async" />
         
         {/* Quick Add "+" Button */}
         <button

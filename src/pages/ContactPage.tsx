@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BotanicalLeaf } from '../components/BotanicalLeaf';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, ExternalLink, Plus, Minus } from 'lucide-react';
 
 interface ContactForm {
   name: string;
@@ -29,6 +29,11 @@ export const ContactPage: React.FC = () => {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSuccess, setIsSuccess] = useState(false);
+  const [mapZoom, setMapZoom] = useState(16);
+
+  const deltaLon = 0.005 * Math.pow(2, 16 - mapZoom);
+  const deltaLat = deltaLon * 0.7;
+  const mapBbox = `${(-122.0320 - deltaLon).toFixed(4)}%2C${(37.3235 - deltaLat).toFixed(4)}%2C${(-122.0320 + deltaLon).toFixed(4)}%2C${(37.3235 + deltaLat).toFixed(4)}`;
 
   const validateField = (field: keyof ContactForm, value: string): string | undefined => {
     switch (field) {
@@ -123,12 +128,15 @@ export const ContactPage: React.FC = () => {
   return (
     <main className="section-cream pb-5">
       {/* Elevated Header Banner with Background Image & Dark Overlay */}
-      <section
-        className="page-hero-banner"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80')`,
-        }}
-      >
+      <section className="page-hero-banner">
+        <img
+          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1100&q=65"
+          alt=""
+          className="page-hero-bg-img"
+          fetchPriority="high"
+          decoding="async"
+          aria-hidden="true"
+        />
         <div className="page-hero-overlay" />
         <div className="page-hero-leaf-left">
           <BotanicalLeaf color="#d4af37" />
@@ -215,122 +223,76 @@ export const ContactPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Real Interactive Location Map Section */}
-              <div
-                style={{
-                  marginTop: 'auto',
-                  borderRadius: '20px',
-                  overflow: 'hidden',
-                  border: '1.5px solid #e0d0bc',
-                  height: '270px',
-                  position: 'relative',
-                  background: '#f4ede1',
-                  boxShadow: '0 4px 18px rgba(0,0,0,0.06)',
-                }}
-              >
-                {/* Real Interactive OpenStreetMap Embed */}
-                <iframe
-                  title="The Olive Grove Interactive Location Map"
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=-122.0370%2C37.3200%2C-122.0270%2C37.3270&amp;layer=mapnik&amp;marker=37.3235%2C-122.0320"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                    display: 'block',
-                  }}
-                  loading="lazy"
-                />
-
-                {/* Styled Restaurant Pin Overlay Header */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '10px',
-                    left: '10px',
-                    right: '10px',
-                    background: 'rgba(9, 32, 23, 0.94)',
-                    backdropFilter: 'blur(8px)',
-                    color: '#ffffff',
-                    padding: '8px 12px',
-                    borderRadius: '12px',
-                    border: '1px solid var(--color-gold)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    flexWrap: 'wrap',
-                    gap: '6px',
-                    boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
-                    zIndex: 2,
-                    boxSizing: 'border-box',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', minWidth: 0 }}>
-                    <span
-                      style={{
-                        width: '8px',
-                        height: '8px',
-                        borderRadius: '50%',
-                        background: 'var(--color-gold-bright)',
-                        boxShadow: '0 0 8px var(--color-gold-bright)',
-                        flexShrink: 0,
-                      }}
-                    />
-                    <span style={{ fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.04em', whiteSpace: 'nowrap' }}>
-                      THE OLIVE GROVE
-                    </span>
+              {/* Interactive Location Map Container with Zero Overlap */}
+              <div className="contact-map-card">
+                {/* 1. Header Bar: Location Identity & Get Directions Button */}
+                <div className="contact-map-header">
+                  <div className="contact-map-brand">
+                    <span className="contact-map-dot" />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span className="contact-map-title">
+                        THE OLIVE GROVE
+                      </span>
+                      <span className="contact-map-sub">
+                        Valet Parking Available • 123 Green Valley Road
+                      </span>
+                    </div>
                   </div>
 
                   <a
                     href="https://maps.google.com/?q=123+Green+Valley+Road"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      background: 'var(--color-gold)',
-                      color: 'var(--color-emerald-deep)',
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      padding: '4px 10px',
-                      borderRadius: '9999px',
-                      textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                      flexShrink: 0,
-                      boxShadow: '0 2px 6px rgba(0,0,0,0.2)',
-                      transition: 'background 0.2s ease',
-                      marginLeft: 'auto',
-                    }}
+                    className="contact-map-directions-btn"
                   >
                     <span>Get Directions</span>
-                    <ExternalLink size={11} />
+                    <ExternalLink size={12} />
                   </a>
                 </div>
 
-                {/* Map Bottom Metadata Badge */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: '8px',
-                    left: '10px',
-                    right: '10px',
-                    background: 'rgba(255, 255, 255, 0.94)',
-                    backdropFilter: 'blur(6px)',
-                    padding: '5px 10px',
-                    borderRadius: '8px',
-                    border: '1px solid #ebd9c2',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    fontSize: '0.70rem',
-                    color: 'var(--color-emerald-deep)',
-                    fontWeight: 600,
-                    zIndex: 2,
-                    boxSizing: 'border-box',
-                    gap: '4px',
-                  }}
-                >
-                  <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>Valet Parking Available</span>
-                  <span style={{ color: 'var(--color-gold)', flexShrink: 0 }}>37.3235° N, 122.0320° W</span>
+                {/* 2. Interactive Map Canvas with Unobstructed Zoom Controls */}
+                <div className="contact-map-canvas">
+                  <iframe
+                    title="The Olive Grove Interactive Location Map"
+                    src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapBbox}&amp;layer=mapnik&amp;marker=37.3235%2C-122.0320`}
+                    className="contact-map-iframe"
+                    loading="lazy"
+                  />
+
+                  {/* Independent Zoom Controls in Top-Right Corner */}
+                  <div className="map-custom-zoom-controls" aria-label="Map Zoom Controls">
+                    <button
+                      type="button"
+                      onClick={() => setMapZoom((z) => Math.min(18, z + 1))}
+                      className="map-zoom-btn"
+                      aria-label="Zoom in on map"
+                      title="Zoom in (+)"
+                    >
+                      <Plus size={16} />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setMapZoom((z) => Math.max(13, z - 1))}
+                      className="map-zoom-btn"
+                      aria-label="Zoom out on map"
+                      title="Zoom out (-)"
+                    >
+                      <Minus size={16} />
+                    </button>
+                  </div>
+                </div>
+
+                {/* 3. Mandatory Provider Attribution Strip (Always 100% visible & clickable) */}
+                <div className="contact-map-footer">
+                  <span className="contact-map-coords">37.3235° N, 122.0320° W</span>
+                  <a
+                    href="https://www.openstreetmap.org/?mlat=37.3235&amp;mlon=-122.0320#map=16/37.3235/-122.0320"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-map-attr-link"
+                  >
+                    Map data © OpenStreetMap contributors
+                  </a>
                 </div>
               </div>
             </div>

@@ -140,10 +140,9 @@ export const VideoModal: React.FC<VideoModalProps> = ({
               className="modal-close-btn"
               style={{
                 position: 'static',
-                background: 'rgba(255, 255, 255, 0.14)',
-                color: '#ffffff',
-                width: '32px',
-                height: '32px',
+                width: '36px',
+                height: '36px',
+                flexShrink: 0,
               }}
               onClick={onClose}
               aria-label="Close video player"

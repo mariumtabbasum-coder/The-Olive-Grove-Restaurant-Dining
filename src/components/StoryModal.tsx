@@ -57,10 +57,9 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose }) => {
             className="modal-close-btn"
             style={{
               position: 'static',
-              background: 'rgba(255, 255, 255, 0.12)',
-              color: '#ffffff',
-              width: '34px',
-              height: '34px',
+              width: '36px',
+              height: '36px',
+              flexShrink: 0,
             }}
             onClick={onClose}
             aria-label="Close story dialog"
@@ -84,8 +83,10 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose }) => {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=700&q=70"
                   alt="Culinary craftsmanship at The Olive Grove"
+                  loading="lazy"
+                  decoding="async"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
