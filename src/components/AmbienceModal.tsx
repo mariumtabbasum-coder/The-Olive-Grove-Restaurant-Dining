@@ -53,7 +53,7 @@ const AMBIENCE_PHOTOS: AmbiencePhoto[] = [
     desc: 'Breathe the fragrant evening breeze under century-old olive trees and ambient fairy lights.',
   },
   {
-    url: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1400&q=85',
+    url: '/assets/images/grilled-salmon.jpg',
     title: 'Line-Caught Atlantic Salmon',
     tag: 'Fresh Harvest',
     desc: 'Pan-seared salmon fillet over tender garden asparagus and golden herb butter.',

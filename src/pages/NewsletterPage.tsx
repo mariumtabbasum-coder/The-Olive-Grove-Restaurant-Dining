@@ -177,30 +177,8 @@ export const NewsletterPage: React.FC = () => {
         {/* Subscriber Perks Row */}
         <div className="row g-4 mt-5">
           <div className="col-md-4">
-            <div
-              style={{
-                background: '#ffffff',
-                borderRadius: '20px',
-                padding: '28px 24px',
-                textAlign: 'center',
-                border: '1px solid #ebd9c2',
-                boxShadow: '0 6px 18px rgba(0,0,0,0.03)',
-                height: '100%',
-              }}
-            >
-              <div
-                style={{
-                  width: '54px',
-                  height: '54px',
-                  borderRadius: '50%',
-                  background: 'rgba(197, 160, 89, 0.15)',
-                  color: 'var(--color-emerald-deep)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '16px',
-                }}
-              >
+            <div className="newsletter-benefit-card">
+              <div className="newsletter-benefit-icon-box">
                 <Wine size={26} color="var(--color-emerald-deep)" />
               </div>
               <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '8px' }}>
@@ -213,30 +191,8 @@ export const NewsletterPage: React.FC = () => {
           </div>
 
           <div className="col-md-4">
-            <div
-              style={{
-                background: '#ffffff',
-                borderRadius: '20px',
-                padding: '28px 24px',
-                textAlign: 'center',
-                border: '1px solid #ebd9c2',
-                boxShadow: '0 6px 18px rgba(0,0,0,0.03)',
-                height: '100%',
-              }}
-            >
-              <div
-                style={{
-                  width: '54px',
-                  height: '54px',
-                  borderRadius: '50%',
-                  background: 'rgba(197, 160, 89, 0.15)',
-                  color: 'var(--color-emerald-deep)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '16px',
-                }}
-              >
+            <div className="newsletter-benefit-card">
+              <div className="newsletter-benefit-icon-box">
                 <Gift size={26} color="var(--color-emerald-deep)" />
               </div>
               <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '8px' }}>
@@ -249,30 +205,8 @@ export const NewsletterPage: React.FC = () => {
           </div>
 
           <div className="col-md-4">
-            <div
-              style={{
-                background: '#ffffff',
-                borderRadius: '20px',
-                padding: '28px 24px',
-                textAlign: 'center',
-                border: '1px solid #ebd9c2',
-                boxShadow: '0 6px 18px rgba(0,0,0,0.03)',
-                height: '100%',
-              }}
-            >
-              <div
-                style={{
-                  width: '54px',
-                  height: '54px',
-                  borderRadius: '50%',
-                  background: 'rgba(197, 160, 89, 0.15)',
-                  color: 'var(--color-emerald-deep)',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '16px',
-                }}
-              >
+            <div className="newsletter-benefit-card">
+              <div className="newsletter-benefit-icon-box">
                 <Bell size={26} color="var(--color-emerald-deep)" />
               </div>
               <h4 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', marginBottom: '8px' }}>

@@ -37,7 +37,16 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
       aria-label={`View details for ${dish.name}`}
     >
       <div className="dish-card-image-box">
-        <img src={dish.image} alt={dish.name} loading="lazy" decoding="async" />
+        <img
+          src={dish.image}
+          alt={dish.name}
+          loading="lazy"
+          decoding="async"
+          className={`dish-card-img dish-img-${dish.id}`}
+          style={{
+            objectPosition: dish.objectPosition || 'center center',
+          }}
+        />
         
         {/* Quick Add "+" Button */}
         <button

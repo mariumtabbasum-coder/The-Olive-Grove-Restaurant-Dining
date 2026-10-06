@@ -42,7 +42,20 @@ export const DishModal: React.FC<DishModalProps> = ({ dish, onClose }) => {
         <div className="dish-modal-grid">
           {/* Left Column: Dish Image */}
           <div className="dish-modal-img-col">
-            <img src={dish.image} alt={dish.name} loading="lazy" decoding="async" />
+            <img
+              src={dish.image}
+              alt={dish.name}
+              fetchPriority="high"
+              decoding="async"
+              className={`dish-modal-photo dish-img-${dish.id}`}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block',
+                objectPosition: dish.objectPosition || 'center center',
+              }}
+            />
           </div>
 
           {/* Right Column: Dish Info */}

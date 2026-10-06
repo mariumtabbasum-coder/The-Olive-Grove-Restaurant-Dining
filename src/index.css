@@ -742,6 +742,30 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   border-color: var(--color-gold-bright);
 }
 
+.btn-outline-emerald {
+  background: transparent;
+  color: var(--color-emerald-deep);
+  border: 1.5px solid var(--color-emerald-deep);
+  border-radius: var(--radius-pill);
+  padding: 11px 26px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-outline-emerald:hover {
+  background: var(--color-gold);
+  color: var(--color-emerald-deep);
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.4);
+}
+
 /* Hero Food Visual */
 .hero-image-frame {
   position: relative;
@@ -1083,6 +1107,13 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   height: 100%;
   display: flex;
   flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+}
+
+.price-list-category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 42px rgba(9, 32, 23, 0.12);
+  border-color: var(--color-gold);
 }
 
 .price-list-items-container {
@@ -1130,7 +1161,19 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 
 .stat-item {
   text-align: center;
-  padding: 10px;
+  padding: 24px 16px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  border: 1px solid #ebd9c2;
+  box-shadow: 0 4px 16px rgba(9, 32, 23, 0.04);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+  height: 100%;
+}
+
+.stat-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(9, 32, 23, 0.12);
+  border-color: var(--color-gold);
 }
 
 .stat-number {
@@ -1230,14 +1273,25 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 
 .dish-modal-img-col {
   position: relative;
-  min-height: 320px;
-  background: #eae2d5;
-}
-
-.dish-modal-img-col img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  min-height: 320px;
+  background: #eae2d5;
+  overflow: hidden;
+  display: block;
+}
+
+.dish-modal-img-col img,
+.dish-modal-photo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Specific Dish Card / Modal Framing Overrides */
+.dish-img-grilled-salmon {
+  object-position: center 25% !important;
 }
 
 /* ========================================================
@@ -1275,24 +1329,32 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   display: block;
 }
 
-/* Individual chef photo framing overrides for exact face & hat framing */
+/* Individual chef photo framing overrides for exact face & hat framing across cards and modal */
+.chef-card-photo,
+.chef-modal-photo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
 .chef-photo-daniel-carter {
-  object-position: center 24% !important;
+  object-position: center 15% !important;
 }
 .chef-photo-maria-lopez {
   object-position: center 20% !important;
 }
 .chef-photo-james-wilson {
-  object-position: center 42% !important;
+  object-position: center 20% !important;
 }
 .chef-photo-elena-rostova {
-  object-position: center 22% !important;
+  object-position: center 15% !important;
 }
 .chef-photo-marco-bellini {
-  object-position: center 25% !important;
+  object-position: center 18% !important;
 }
 .chef-photo-camille-laurent {
-  object-position: center 35% !important;
+  object-position: center 18% !important;
 }
 
 .dish-modal-content-col {
@@ -1699,15 +1761,6 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 /* ========================================================
    PRICE LIST TABLES
    ======================================================== */
-.price-list-category-card {
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  padding: 30px 26px;
-  border: 1px solid #ebd9c2;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-  margin-bottom: 30px;
-}
-
 .price-list-cat-title {
   font-family: var(--font-serif);
   font-size: 1.6rem;
@@ -2494,6 +2547,10 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 }
 
 @media (max-width: 480px) {
+  .dish-modal-img-col {
+    height: 250px !important;
+    min-height: 220px !important;
+  }
   .dish-modal-content-col {
     padding: 20px 14px !important;
   }
@@ -2537,25 +2594,22 @@ body {
     display: flex !important;
   }
   .dish-modal-grid {
-    grid-template-columns: 1fr;
-  }
-  .dish-modal-img-col {
-    height: 220px;
-    min-height: 200px;
-  }
-  .chef-modal-grid {
     grid-template-columns: 1fr !important;
   }
-  .chef-modal-img-col {
+  .dish-modal-img-col {
     width: 100% !important;
-    height: 420px !important;
-    min-height: 400px !important;
-    max-height: 52vh !important;
+    height: 340px !important;
+    min-height: 300px !important;
+    max-height: 48vh !important;
+    display: block !important;
+    overflow: hidden !important;
   }
-  .chef-modal-photo {
+  .dish-modal-img-col img,
+  .dish-modal-photo {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
+    display: block !important;
   }
   .timeline-track::before {
     left: 20px;
@@ -2612,19 +2666,47 @@ body {
     padding-left: 14px;
     padding-right: 14px;
   }
-  .chef-modal-grid {
+  .dish-modal-grid {
     grid-template-columns: 1fr !important;
+  }
+  .dish-modal-img-col {
+    width: 100% !important;
+    height: 320px !important;
+    min-height: 280px !important;
+    max-height: 48vh !important;
+    display: block !important;
+    overflow: hidden !important;
+  }
+  .dish-modal-img-col img,
+  .dish-modal-photo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  /* Tablet (768px): Maintain side-by-side 2-column layout matching reference */
+  .chef-modal-dialog {
+    max-width: 730px !important;
+    width: 95% !important;
+  }
+  .chef-modal-grid {
+    grid-template-columns: 280px 1fr !important;
+    max-height: 86vh !important;
   }
   .chef-modal-img-col {
     width: 100% !important;
-    height: 420px !important;
-    min-height: 400px !important;
-    max-height: 52vh !important;
+    height: 100% !important;
+    min-height: 460px !important;
+    max-height: none !important;
+    display: block !important;
   }
   .chef-modal-photo {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
+  }
+  .chef-modal-dialog .dish-modal-content-col {
+    padding: 28px 22px 22px 22px !important;
   }
 }
 
@@ -2686,7 +2768,7 @@ body {
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 576px) {
   .chef-modal-grid {
     grid-template-columns: 1fr !important;
   }
@@ -2860,4 +2942,359 @@ body {
 
 .map-zoom-btn:active {
   transform: scale(0.96);
+}
+
+/* ========================================================
+   NEWSLETTER BENEFIT PERK CARDS HOVER EFFECT
+   ======================================================== */
+.newsletter-benefit-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  border: 1px solid #ebd9c2;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+  cursor: default;
+}
+
+.newsletter-benefit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(9, 32, 23, 0.1);
+  border-color: var(--color-gold);
+}
+
+.newsletter-benefit-card .newsletter-benefit-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.15);
+  color: var(--color-emerald-deep);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  transition: transform 0.35s ease, background-color 0.35s ease;
+}
+
+.newsletter-benefit-card:hover .newsletter-benefit-icon-box {
+  transform: scale(1.08);
+  background: rgba(197, 160, 89, 0.28);
+}
+
+/* ========================================================
+   RESERVATION SIDE IMAGE HOVER EFFECT
+   ======================================================== */
+.reservation-side-image-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  border: 2px solid #ebd9c2;
+  height: 100%;
+  min-height: 440px;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.reservation-side-image-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 22px 50px rgba(9, 32, 23, 0.2);
+}
+
+.reservation-side-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.reservation-side-image-card:hover .reservation-side-img {
+  transform: scale(1.05);
+}
+
+/* ========================================================
+   STORY MODAL HOVER EFFECTS (IMAGE & MILESTONE CARDS)
+   ======================================================== */
+.story-modal-img-frame {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ebd9c2;
+  height: 270px;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.story-modal-img-frame:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 18px 40px rgba(9, 32, 23, 0.18);
+}
+
+.story-modal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.story-modal-img-frame:hover .story-modal-img {
+  transform: scale(1.06);
+}
+
+.story-milestone-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #ebd9c2;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+  cursor: default;
+}
+
+.story-milestone-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(9, 32, 23, 0.12);
+  border-color: var(--color-gold);
+}
+
+/* ========================================================
+   ABOUT PAGE CHEF IMAGE HOVER & FULL RESPONSIVE FRAMING
+   (Mobile, Tablet, Laptop, Desktop)
+   ======================================================== */
+.about-chef-image-frame {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+  border: 3px solid #eedec9;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.about-chef-image-frame:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 24px 50px rgba(9, 32, 23, 0.2);
+}
+
+.about-chef-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 28%;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.about-chef-image-frame:hover .about-chef-img {
+  transform: scale(1.05);
+}
+
+/* Laptop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .about-chef-img {
+    height: 460px;
+    object-position: center 28%;
+  }
+}
+
+/* Tablet (577px - 991px, e.g. 768px): Landscape framing to show chef under heat lamps with no tight zoom */
+@media (min-width: 577px) and (max-width: 991px) {
+  .about-chef-img {
+    height: auto !important;
+    aspect-ratio: 16 / 11 !important;
+    max-height: 520px !important;
+    object-position: center 26% !important;
+  }
+}
+
+/* Mobile (<= 576px): Balanced aspect ratio framing head, lamps and hands */
+@media (max-width: 576px) {
+  .about-chef-img {
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    max-height: 380px !important;
+    min-height: 290px !important;
+    object-position: center 24% !important;
+  }
+  .about-quote-badge {
+    bottom: -15px !important;
+    right: 14px !important;
+    padding: 12px 18px !important;
+    max-width: 210px !important;
+  }
+}
+
+/* ========================================================
+   CART SECTION CARDS HOVER EFFECTS
+   ======================================================== */
+.cart-summary-card,
+.cart-items-card,
+.cart-empty-card,
+.cart-success-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid #ebd9c2;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+}
+
+.cart-summary-card:hover,
+.cart-items-card:hover,
+.cart-empty-card:hover,
+.cart-success-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 42px rgba(9, 32, 23, 0.1);
+  border-color: var(--color-gold);
+}
+
+.cart-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--color-cream-bg);
+  border: 1px solid #ebd9c2;
+  flex-wrap: wrap;
+  gap: 16px;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.cart-item-row:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(9, 32, 23, 0.07);
+  border-color: var(--color-gold);
+}
+
+/* ========================================================
+   SEE OUR STORY MODAL HEADER & NON-OVERLAPPING CLOSE BUTTON
+   ======================================================== */
+.story-modal-header {
+  background: var(--color-emerald-deep);
+  color: #ffffff;
+  padding: 24px 28px;
+  position: relative;
+  border-bottom: 1px solid var(--color-gold-border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.story-modal-leaf {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 60px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.story-modal-header-text {
+  flex: 1;
+  min-width: 0;
+  padding-right: 8px;
+}
+
+.story-modal-eyebrow {
+  color: var(--color-gold-bright) !important;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.story-modal-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 4vw, 1.85rem);
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.story-modal-close-btn {
+  position: static !important;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: all 0.25s ease;
+  padding: 0;
+}
+
+.story-modal-close-btn:hover {
+  background: var(--color-gold-bright) !important;
+  color: #092017 !important;
+  border-color: #ffffff !important;
+  transform: scale(1.08);
+}
+
+@media (max-width: 576px) {
+  .story-modal-header {
+    padding: 16px 14px 14px 14px !important;
+    gap: 12px !important;
+  }
+  .story-modal-title {
+    font-size: 1.22rem !important;
+  }
+  .story-modal-close-btn {
+    width: 34px !important;
+    height: 34px !important;
+  }
+}
+
+/* ========================================================
+   AMBIENCE MODAL MOBILE CLOSE BUTTON SAFE POSITIONING
+   ======================================================== */
+@media (max-width: 576px) {
+  .ambience-modal-dialog {
+    width: 94% !important;
+    max-width: 94% !important;
+    margin: 0 auto !important;
+  }
+  .ambience-modal-header {
+    padding: 12px 14px 12px 14px !important;
+    gap: 8px !important;
+  }
+  .ambience-header-title {
+    font-size: 1.05rem !important;
+  }
+  .ambience-close-btn {
+    width: 34px !important;
+    height: 34px !important;
+    margin-right: 0 !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* ========================================================
+   MOBILE / TABLET NAVBAR ACTIVE LINK HIGHLIGHT & UNDERLINE BAR
+   ======================================================== */
+.mobile-link-active-bar {
+  width: 20px;
+  height: 2px;
+  background: var(--color-gold-bright);
+  border-radius: 2px;
+  margin-left: 6px;
+  display: inline-block;
+}
+
+.mobile-menu-link.active {
+  background: rgba(197, 160, 89, 0.22) !important;
+  color: var(--color-gold-bright) !important;
+  font-weight: 600 !important;
+  border-left: 3px solid var(--color-gold) !important;
+}
+
+.mobile-menu-sublink.active {
+  background: rgba(197, 160, 89, 0.25) !important;
+  color: var(--color-gold-bright) !important;
+  border-color: var(--color-gold) !important;
+  font-weight: 600 !important;
 }

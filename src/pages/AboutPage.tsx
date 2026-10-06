@@ -60,7 +60,7 @@ export const AboutPage: React.FC = () => {
                   <span>Explore Menu</span>
                   <ArrowRight size={16} />
                 </Link>
-                <Link to="/chefs" className="btn-outline-gold" style={{ color: 'var(--color-emerald-deep)', borderColor: 'var(--color-emerald-deep)' }}>
+                <Link to="/chefs" className="btn-outline-emerald">
                   <span>Meet The Chefs</span>
                 </Link>
               </div>
@@ -68,24 +68,18 @@ export const AboutPage: React.FC = () => {
 
             <div className="col-lg-6">
               <div style={{ position: 'relative' }}>
-                <div
-                  style={{
-                    borderRadius: '28px',
-                    overflow: 'hidden',
-                    boxShadow: '0 20px 45px rgba(0, 0, 0, 0.12)',
-                    border: '3px solid #eedec9',
-                  }}
-                >
+                <div className="about-chef-image-frame">
                   <img
-                    src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=700&q=70"
-                    alt="Chef Daniel Carter crafting dishes"
+                    src="/assets/images/about-chef.jpg"
+                    alt="Chef Daniel Carter crafting gourmet dishes under warm copper heat lamps"
                     loading="lazy"
                     decoding="async"
-                    style={{ width: '100%', height: '420px', objectFit: 'cover' }}
+                    className="about-chef-img"
                   />
                 </div>
                 {/* Floating Quote Badge */}
                 <div
+                  className="about-quote-badge"
                   style={{
                     position: 'absolute',
                     bottom: '-20px',

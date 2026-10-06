@@ -58,15 +58,12 @@ export const CartPage: React.FC = () => {
       <div className="content-container pt-5">
         {orderPlaced ? (
           <div
+            className="cart-success-card"
             style={{
               maxWidth: '650px',
               margin: '40px auto',
-              background: '#ffffff',
-              borderRadius: '24px',
               padding: '48px 36px',
               textAlign: 'center',
-              border: '1px solid #ebd9c2',
-              boxShadow: '0 12px 36px rgba(0,0,0,0.06)',
             }}
           >
             <div
@@ -103,15 +100,12 @@ export const CartPage: React.FC = () => {
         ) : cart.length === 0 ? (
           /* Empty Cart State */
           <div
+            className="cart-empty-card"
             style={{
               maxWidth: '550px',
               margin: '40px auto',
-              background: '#ffffff',
-              borderRadius: '24px',
               padding: '48px 32px',
               textAlign: 'center',
-              border: '1px solid #ebd9c2',
-              boxShadow: '0 8px 24px rgba(0,0,0,0.04)',
             }}
           >
             <div
@@ -146,12 +140,9 @@ export const CartPage: React.FC = () => {
             {/* Left Col: Items List */}
             <div className="col-lg-8">
               <div
+                className="cart-items-card"
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '24px',
                   padding: '30px',
-                  border: '1px solid #ebd9c2',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.04)',
                 }}
               >
                 <div className="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
@@ -182,17 +173,7 @@ export const CartPage: React.FC = () => {
                   {cart.map((item) => (
                     <div
                       key={item.dish.id}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        padding: '16px',
-                        borderRadius: '16px',
-                        background: 'var(--color-cream-bg)',
-                        border: '1px solid #ebd9c2',
-                        flexWrap: 'wrap',
-                        gap: '16px',
-                      }}
+                      className="cart-item-row"
                     >
                       {/* Image + Info */}
                       <div className="d-flex align-items-center gap-3">
@@ -302,12 +283,9 @@ export const CartPage: React.FC = () => {
             {/* Right Col: Order Summary */}
             <div className="col-lg-4">
               <div
+                className="cart-summary-card"
                 style={{
-                  background: '#ffffff',
-                  borderRadius: '24px',
                   padding: '32px 28px',
-                  border: '1px solid #ebd9c2',
-                  boxShadow: '0 8px 24px rgba(0,0,0,0.04)',
                 }}
               >
                 <h3 style={{ fontFamily: 'var(--font-serif)', color: 'var(--color-emerald-deep)', fontSize: '1.6rem', marginBottom: '20px' }}>

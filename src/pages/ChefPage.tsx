@@ -68,6 +68,7 @@ export const ChefPage: React.FC = () => {
                     alt={chef.name}
                     loading="lazy"
                     decoding="async"
+                    className={`chef-card-photo chef-photo-${chef.id}`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: chef.objectPosition || 'center 25%' }}
                   />
                   {/* Experience Badge overlapping bottom-right corner of photo */}

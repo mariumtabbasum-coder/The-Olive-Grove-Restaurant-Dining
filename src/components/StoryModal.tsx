@@ -28,39 +28,22 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar */}
-        <div
-          style={{
-            background: 'var(--color-emerald-deep)',
-            color: '#ffffff',
-            padding: '24px 32px',
-            position: 'relative',
-            borderBottom: '1px solid var(--color-gold-border)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          <div style={{ position: 'absolute', top: 8, left: 10, width: '60px', opacity: 0.25, pointerEvents: 'none' }}>
+        <div className="story-modal-header">
+          <div className="story-modal-leaf">
             <BotanicalLeaf color="#d4af37" />
           </div>
 
-          <div>
-            <span className="eyebrow-text" style={{ color: 'var(--color-gold-bright)', marginBottom: '4px' }}>
+          <div className="story-modal-header-text">
+            <span className="eyebrow-text story-modal-eyebrow">
               Our Heritage & Philosophy
             </span>
-            <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: '1.9rem', color: '#ffffff', margin: 0 }}>
+            <h3 className="story-modal-title">
               The Story of The Olive Grove
             </h3>
           </div>
 
           <button
-            className="modal-close-btn"
-            style={{
-              position: 'static',
-              width: '36px',
-              height: '36px',
-              flexShrink: 0,
-            }}
+            className="story-modal-close-btn"
             onClick={onClose}
             aria-label="Close story dialog"
           >
@@ -74,6 +57,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose }) => {
           <div className="row g-4 align-items-center mb-4">
             <div className="col-md-5">
               <div
+                className="story-modal-img-frame"
                 style={{
                   borderRadius: '20px',
                   overflow: 'hidden',
@@ -87,6 +71,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose }) => {
                   alt="Culinary craftsmanship at The Olive Grove"
                   loading="lazy"
                   decoding="async"
+                  className="story-modal-img"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </div>
@@ -132,7 +117,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose }) => {
 
             <div className="row g-3">
               <div className="col-sm-6 col-lg-3">
-                <div style={{ background: '#ffffff', padding: '16px', borderRadius: '14px', border: '1px solid #ebd9c2' }}>
+                <div className="story-milestone-card">
                   <span style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-gold)' }}>
                     2014
                   </span>
@@ -146,7 +131,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose }) => {
               </div>
 
               <div className="col-sm-6 col-lg-3">
-                <div style={{ background: '#ffffff', padding: '16px', borderRadius: '14px', border: '1px solid #ebd9c2' }}>
+                <div className="story-milestone-card">
                   <span style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-gold)' }}>
                     2018
                   </span>
@@ -160,7 +145,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose }) => {
               </div>
 
               <div className="col-sm-6 col-lg-3">
-                <div style={{ background: '#ffffff', padding: '16px', borderRadius: '14px', border: '1px solid #ebd9c2' }}>
+                <div className="story-milestone-card">
                   <span style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-gold)' }}>
                     2022
                   </span>
@@ -174,7 +159,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose }) => {
               </div>
 
               <div className="col-sm-6 col-lg-3">
-                <div style={{ background: '#ffffff', padding: '16px', borderRadius: '14px', border: '1px solid #ebd9c2' }}>
+                <div className="story-milestone-card">
                   <span style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-gold)' }}>
                     2026
                   </span>

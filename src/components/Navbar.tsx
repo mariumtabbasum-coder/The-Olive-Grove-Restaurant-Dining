@@ -13,13 +13,22 @@ export const Navbar: React.FC = () => {
   const hoverTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const currentPath = location.pathname;
+  const normalizedPath = currentPath.toLowerCase().replace(/\/+$/, '') || '/';
+
+  const isRouteActive = (path: string) => {
+    const target = path.toLowerCase().replace(/\/+$/, '') || '/';
+    if (target === '/') {
+      return normalizedPath === '/';
+    }
+    return normalizedPath === target || normalizedPath.startsWith(target + '/');
+  };
 
   const isMoreActive = [
     '/price-list',
     '/support',
     '/newsletter',
     '/sitemap',
-  ].includes(currentPath);
+  ].some((p) => isRouteActive(p));
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -135,7 +144,7 @@ export const Navbar: React.FC = () => {
         {/* CENTER: Navigation Links (Desktop Only) */}
         <nav className="nav-links-center d-none d-lg-flex">
           {navLinks.map((item) => {
-            const isActive = currentPath === item.path;
+            const isActive = isRouteActive(item.path);
             return (
               <Link
                 key={item.name}
@@ -239,7 +248,7 @@ export const Navbar: React.FC = () => {
         <div className="mobile-menu-content">
           <div className="mobile-menu-links-group">
             {navLinks.map((item) => {
-              const isActive = currentPath === item.path;
+              const isActive = isRouteActive(item.path);
               return (
                 <Link
                   key={item.name}
@@ -247,7 +256,10 @@ export const Navbar: React.FC = () => {
                   className={`mobile-menu-link ${isActive ? 'active' : ''}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <span>{item.name}</span>
+                  <div className="d-flex align-items-center gap-2">
+                    <span>{item.name}</span>
+                    {isActive && <div className="mobile-link-active-bar" />}
+                  </div>
                   {isActive && <span className="mobile-active-dot" />}
                 </Link>
               );
@@ -261,7 +273,7 @@ export const Navbar: React.FC = () => {
             <div className="mobile-menu-more-grid">
               <Link
                 to="/price-list"
-                className={`mobile-menu-sublink ${currentPath === '/price-list' ? 'active' : ''}`}
+                className={`mobile-menu-sublink ${isRouteActive('/price-list') ? 'active' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Tag size={15} />
@@ -269,7 +281,7 @@ export const Navbar: React.FC = () => {
               </Link>
               <Link
                 to="/support"
-                className={`mobile-menu-sublink ${currentPath === '/support' ? 'active' : ''}`}
+                className={`mobile-menu-sublink ${isRouteActive('/support') ? 'active' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <HelpCircle size={15} />
@@ -277,7 +289,7 @@ export const Navbar: React.FC = () => {
               </Link>
               <Link
                 to="/newsletter"
-                className={`mobile-menu-sublink ${currentPath === '/newsletter' ? 'active' : ''}`}
+                className={`mobile-menu-sublink ${isRouteActive('/newsletter') ? 'active' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Mail size={15} />
@@ -285,7 +297,7 @@ export const Navbar: React.FC = () => {
               </Link>
               <Link
                 to="/sitemap"
-                className={`mobile-menu-sublink ${currentPath === '/sitemap' ? 'active' : ''}`}
+                className={`mobile-menu-sublink ${isRouteActive('/sitemap') ? 'active' : ''}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Map size={15} />

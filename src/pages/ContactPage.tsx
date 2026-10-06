@@ -51,12 +51,15 @@ export const ContactPage: React.FC = () => {
         }
         return undefined;
 
-      case 'phone':
-        if (!value.trim()) return 'Phone number is required.';
-        if (!/^[\d\+\-\(\)\s]{7,18}$/.test(value.trim())) {
-          return 'Please enter a valid phone number.';
+      case 'phone': {
+        const trimmed = value.trim();
+        if (!trimmed) return 'Phone number is required.';
+        const digitsOnly = trimmed.replace(/\D/g, '');
+        if (!/^[\d\s\-]+$/.test(trimmed) || digitsOnly.length !== 11) {
+          return 'Please enter a valid 11-digit phone number.';
         }
         return undefined;
+      }
 
       case 'subject':
         if (!value.trim()) return 'Subject is required.';
@@ -379,7 +382,7 @@ export const ContactPage: React.FC = () => {
                         id="contact-phone"
                         name="phone"
                         type="tel"
-                        placeholder="+92 300 1234567"
+                        placeholder="0300 1234567"
                         className={`custom-form-control ${errors.phone ? 'has-error' : ''}`}
                         value={formData.phone}
                         onChange={handleChange}

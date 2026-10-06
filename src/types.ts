@@ -11,6 +11,7 @@ export interface Dish {
   description: string;
   ingredients: string;
   image: string;
+  objectPosition?: string;
   isSignature?: boolean;
 }
 

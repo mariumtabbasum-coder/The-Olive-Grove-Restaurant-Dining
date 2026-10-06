@@ -13,7 +13,7 @@ export const DISHES: Dish[] = [
     calories: '540 kcal',
     description: 'Handcrafted fettuccine tossed in a rich wild forest mushroom medley, black summer truffle emulsion, fresh thyme, and aged Parmigiano-Reggiano shavings.',
     ingredients: 'Fettuccine pasta, wild mushrooms, black summer truffle oil, heavy cream, garlic, Parmigiano-Reggiano, fresh thyme, sea salt.',
-    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=85',
     isSignature: true,
   },
   {
@@ -28,7 +28,8 @@ export const DISHES: Dish[] = [
     calories: '490 kcal',
     description: 'Perfect grilled salmon fillet served with tender seasonal asparagus, blistered heirloom cherry tomatoes, aromatic herb butter and a touch of grilled lemon.',
     ingredients: 'Fresh Atlantic salmon, asparagus, lemon, extra virgin olive oil, garlic, organic butter, sea salt, cracked black pepper.',
-    image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: '/assets/images/grilled-salmon.jpg',
+    objectPosition: 'center 25%',
     isSignature: true,
   },
   {
@@ -43,7 +44,7 @@ export const DISHES: Dish[] = [
     calories: '510 kcal',
     description: 'Free-range chicken breast marinated in fresh garden rosemary, oregano, pressed lemons, and slow-roasted to golden perfection with rosemary baby potatoes.',
     ingredients: 'Free-range chicken breast, Meyer lemon juice, fresh rosemary, wild oregano, roasted baby potatoes, extra virgin olive oil, garlic.',
-    image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1000&q=85',
     isSignature: true,
   },
   {
@@ -58,7 +59,7 @@ export const DISHES: Dish[] = [
     calories: '420 kcal',
     description: 'Decadent dark Belgian molten chocolate cake with a velvety warm ganache core, accompanied by Madagascar vanilla bean gelato and fresh raspberry reduction.',
     ingredients: '70% Belgian dark chocolate, sweet cream butter, cage-free eggs, organic cane sugar, pure vanilla extract, Madagascar vanilla gelato.',
-    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=85',
     isSignature: true,
   },
   {
@@ -73,7 +74,7 @@ export const DISHES: Dish[] = [
     calories: '320 kcal',
     description: 'Creamy buffalo mozzarella di bufala sliced with ripe heritage vine tomatoes, freshly picked sweet basil leaves, aged Modena balsamic glaze, and cold-pressed olive oil.',
     ingredients: 'Buffalo mozzarella, heirloom tomatoes, fresh sweet basil, extra virgin olive oil, Modena balsamic reduction, fleur de sel.',
-    image: 'https://images.unsplash.com/photo-1529312266912-b33cfce2eefd?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1529312266912-b33cfce2eefd?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'bruschetta',
@@ -87,7 +88,7 @@ export const DISHES: Dish[] = [
     calories: '280 kcal',
     description: 'Artisanal grilled sourdough bread rubbed with fresh garlic cloves, piled generously with diced Roma tomatoes, garlic, micro basil, and a generous drizzle of green olive oil.',
     ingredients: 'Country sourdough bread, Roma tomatoes, roasted garlic, fresh basil, cold-pressed olive oil, cracked sea salt.',
-    image: 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'creamy-tomato-soup',
@@ -101,7 +102,7 @@ export const DISHES: Dish[] = [
     calories: '260 kcal',
     description: 'Velvety roasted San Marzano tomato bisqué slow-simmered with caramelized shallots, cream, fresh garden basil, served with parmesan herb focaccia crisp.',
     ingredients: 'San Marzano tomatoes, sweet cream, roasted garlic, sweet basil, vegetable broth, olive oil, focaccia bread.',
-    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'stuffed-mushrooms',
@@ -115,7 +116,7 @@ export const DISHES: Dish[] = [
     calories: '310 kcal',
     description: 'Baked baby portobello caps stuffed with garlic herb ricotta, sun-dried tomatoes, toasted panko crust, and melted provolone.',
     ingredients: 'Portobello mushrooms, whole milk ricotta, sun-dried tomatoes, panko, provolone, parsley, garlic.',
-    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'garlic-bread',
@@ -129,7 +130,7 @@ export const DISHES: Dish[] = [
     calories: '240 kcal',
     description: 'Toasted baguette slathered in whipped roasted garlic butter, parsley, and melted fontina cheese.',
     ingredients: 'French baguette, roasted garlic, cultured butter, flat-leaf parsley, fontina cheese.',
-    image: 'https://images.unsplash.com/photo-1619860860774-1e2e17343432?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1619860860774-1e2e17343432?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'chicken-alfredo-pasta',
@@ -143,7 +144,7 @@ export const DISHES: Dish[] = [
     calories: '620 kcal',
     description: 'Tender pan-seared chicken strips folded into creamy handmade fettuccine smothered in our signature aged parmesan garlic cream sauce and freshly cracked black peppercorn.',
     ingredients: 'Handmade fettuccine, chicken breast, heavy cream, Parmigiano-Reggiano, garlic, butter, nutmeg, fresh parsley.',
-    image: 'https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1645112411341-6c4fd023714a?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'seafood-linguine',
@@ -157,7 +158,7 @@ export const DISHES: Dish[] = [
     calories: '580 kcal',
     description: 'Linguine pasta tossed with jumbo tiger prawns, tender calamari, blue mussels in a white wine, garlic, and cherry tomato marinara sauce.',
     ingredients: 'Linguine, tiger prawns, calamari, mussels, Pinot Grigio white wine, cherry tomatoes, garlic, chili flakes, parsley.',
-    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'margherita-pizza',
@@ -171,7 +172,7 @@ export const DISHES: Dish[] = [
     calories: '680 kcal',
     description: 'Classic Neapolitan wood-fired pizza with 48-hour fermented sour dough, San Marzano tomato passata, fresh buffalo fior di latte mozzarella, and aromatic basil leaves.',
     ingredients: 'Artisanal dough, San Marzano tomato sauce, fior di latte mozzarella, fresh sweet basil, extra virgin olive oil.',
-    image: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1604382355076-af4b0eb60143?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'quattro-formaggi-pizza',
@@ -185,7 +186,7 @@ export const DISHES: Dish[] = [
     calories: '740 kcal',
     description: 'Four-cheese masterpiece featuring aged gorgonzola dolce, creamy fontina, fresh mozzarella, and grated parmesan with a touch of wildflower honey drizzle.',
     ingredients: 'Pizza dough, gorgonzola dolce, fontina, mozzarella, Parmigiano-Reggiano, wildflower honey, cracked black pepper.',
-    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'beef-steak',
@@ -199,7 +200,7 @@ export const DISHES: Dish[] = [
     calories: '640 kcal',
     description: 'Charred prime beef tenderloin served medium with truffle compound butter, red wine shallot reduction, and velvety potato purée.',
     ingredients: 'Prime beef tenderloin, truffle butter, red wine, shallots, Yukon gold potatoes, cream, rosemary.',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'tiramisu',
@@ -213,7 +214,7 @@ export const DISHES: Dish[] = [
     calories: '380 kcal',
     description: 'Traditional Venetian recipe with house-made Savoiardi ladyfingers soaked in dark espresso and Marsala wine, layered with whipped mascarpone cream and Valrhona cocoa dust.',
     ingredients: 'Savoiardi ladyfingers, Italian mascarpone, organic eggs, espresso, Marsala wine, Valrhona cocoa powder.',
-    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: '/assets/images/classic-tiramisu.jpg',
   },
   {
     id: 'new-york-cheesecake',
@@ -227,7 +228,7 @@ export const DISHES: Dish[] = [
     calories: '440 kcal',
     description: 'Silky smooth baked cream cheese filling resting on a spiced graham cracker crust, topped with wild berry coulis and fresh mint.',
     ingredients: 'Cream cheese, graham crackers, sweet cream, pure vanilla, mixed berry coulis, mint.',
-    image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'fresh-lemonade',
@@ -241,7 +242,7 @@ export const DISHES: Dish[] = [
     calories: '110 kcal',
     description: 'Cold-pressed Sicilian lemons muddled with fresh garden spearmint leaves, organic agave nectar, and crisp sparkling spring water served over crushed ice.',
     ingredients: 'Sicilian lemons, fresh spearmint, agave nectar, sparkling spring water, ice.',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'iced-coffee',
@@ -255,7 +256,7 @@ export const DISHES: Dish[] = [
     calories: '45 kcal',
     description: 'Double shot of single-origin Ethiopian espresso poured gently over premium botanical tonic water and garnished with an expressed orange twist.',
     ingredients: 'Single-origin espresso, botanical tonic water, orange peel, crystal ice.',
-    image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'cappuccino',
@@ -269,7 +270,7 @@ export const DISHES: Dish[] = [
     calories: '90 kcal',
     description: 'Balanced espresso extracted from fresh Arabica beans with micro-foamed organic steamed milk and a dusting of cinnamon.',
     ingredients: 'Espresso, steamed organic milk, cinnamon dust.',
-    image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=1000&q=85',
   },
   {
     id: 'fine-wine',
@@ -283,6 +284,6 @@ export const DISHES: Dish[] = [
     calories: '125 kcal',
     description: 'Rich Tuscan ruby red wine with notes of ripe dark cherries, violet flowers, and subtle toasted oak vanilla tannins.',
     ingredients: 'Sangiovese grapes, oak aged, vintage 2019.',
-    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80w=600&w=800&q=80q=70',
+    image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=85',
   },
 ];

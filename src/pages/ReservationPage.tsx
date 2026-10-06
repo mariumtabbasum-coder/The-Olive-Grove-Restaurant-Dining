@@ -53,12 +53,15 @@ export const ReservationPage: React.FC = () => {
         }
         return undefined;
 
-      case 'phone':
-        if (!value.trim()) return 'Phone number is required.';
-        if (!/^[\d\+\-\(\)\s]{7,18}$/.test(value.trim())) {
-          return 'Please enter a valid phone number.';
+      case 'phone': {
+        const trimmed = value.trim();
+        if (!trimmed) return 'Phone number is required.';
+        const digitsOnly = trimmed.replace(/\D/g, '');
+        if (!/^[\d\s\-]+$/.test(trimmed) || digitsOnly.length !== 11) {
+          return 'Please enter a valid 11-digit phone number.';
         }
         return undefined;
+      }
 
       case 'date':
         if (!value.trim()) return 'Date is required.';
@@ -258,7 +261,7 @@ export const ReservationPage: React.FC = () => {
                         id="res-phone"
                         name="phone"
                         type="tel"
-                        placeholder="+92 300 1234567"
+                        placeholder="0300 1234567"
                         className={`custom-form-control ${errors.phone ? 'has-error' : ''}`}
                         value={formData.phone}
                         onChange={handleChange}
@@ -362,6 +365,7 @@ export const ReservationPage: React.FC = () => {
           {/* Right Column: Restaurant Image & "We'll Make It Special" Caption */}
           <div className="col-lg-5">
             <div
+              className="reservation-side-image-card"
               style={{
                 position: 'relative',
                 borderRadius: '24px',
@@ -377,7 +381,7 @@ export const ReservationPage: React.FC = () => {
                 alt="The Olive Grove Candlelit Table Setting"
                 loading="lazy"
                 decoding="async"
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                className="reservation-side-img"
               />
 
               {/* Caption Overlay at Bottom */}
