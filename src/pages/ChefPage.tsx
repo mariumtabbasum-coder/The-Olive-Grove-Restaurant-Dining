@@ -13,9 +13,9 @@ export const ChefPage: React.FC = () => {
       {/* Elevated Header Banner with Background Image & Dark Overlay */}
       <section className="page-hero-banner">
         <img
-          src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1100&q=65"
-          alt=""
-          className="page-hero-bg-img"
+          src="/assets/images/chefs-header.jpg"
+          alt="Culinary team preparing gourmet cuisine in fine dining kitchen"
+          className="page-hero-bg-img chefs-hero-bg"
           fetchPriority="high"
           decoding="async"
           aria-hidden="true"

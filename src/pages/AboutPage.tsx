@@ -67,7 +67,7 @@ export const AboutPage: React.FC = () => {
             </div>
 
             <div className="col-lg-6">
-              <div style={{ position: 'relative' }}>
+              <div className="about-chef-wrapper" style={{ position: 'relative' }}>
                 <div className="about-chef-image-frame">
                   <img
                     src="/assets/images/about-chef.jpg"

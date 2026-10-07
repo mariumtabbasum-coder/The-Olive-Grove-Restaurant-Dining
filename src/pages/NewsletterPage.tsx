@@ -45,9 +45,9 @@ export const NewsletterPage: React.FC = () => {
       {/* Elevated Header Banner with Background Image & Dark Overlay */}
       <section className="page-hero-banner">
         <img
-          src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1100&q=65"
-          alt=""
-          className="page-hero-bg-img"
+          src="/assets/images/newsletter-header.jpg"
+          alt="VIP table setting with wine and culinary welcome privileges"
+          className="page-hero-bg-img newsletter-hero-bg"
           fetchPriority="high"
           decoding="async"
           aria-hidden="true"

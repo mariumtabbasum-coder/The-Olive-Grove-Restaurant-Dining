@@ -253,7 +253,7 @@ export const ContactPage: React.FC = () => {
                   </a>
                 </div>
 
-                {/* 2. Interactive Map Canvas with Unobstructed Zoom Controls */}
+                {/* 2. Interactive Map Canvas with Unobstructed Zoom Controls & Restored Location Pin */}
                 <div className="contact-map-canvas">
                   <iframe
                     title="The Olive Grove Interactive Location Map"
@@ -261,6 +261,17 @@ export const ContactPage: React.FC = () => {
                     className="contact-map-iframe"
                     loading="lazy"
                   />
+
+                  {/* Restored Restaurant Location Pin Marker (Gold & Green themed) */}
+                  <div className="map-location-marker-anchor" aria-label="The Olive Grove Location Pin">
+                    <div className="map-marker-pulse-ring" />
+                    <div className="map-marker-pin-head" title="The Olive Grove Restaurant (123 Green Valley Road)">
+                      <MapPin size={18} color="#ffffff" fill="var(--color-emerald-deep)" />
+                    </div>
+                    <div className="map-marker-callout">
+                      <span>The Olive Grove</span>
+                    </div>
+                  </div>
 
                   {/* Independent Zoom Controls in Top-Right Corner */}
                   <div className="map-custom-zoom-controls" aria-label="Map Zoom Controls">

@@ -1028,6 +1028,14 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   pointer-events: none;
 }
 
+.chefs-hero-bg {
+  object-position: center 38% !important;
+}
+
+.newsletter-hero-bg {
+  object-position: center 42% !important;
+}
+
 .page-hero-overlay {
   position: absolute;
   inset: 0;
@@ -2879,6 +2887,86 @@ body {
   display: block;
 }
 
+/* Restored Restaurant Location Pin Marker on Canvas */
+.map-location-marker-anchor {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  z-index: 8;
+}
+
+.map-marker-pulse-ring {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.5);
+  animation: mapPinPulse 2s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes mapPinPulse {
+  0% {
+    transform: translate(-50%, 50%) scale(0.5);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(-50%, 50%) scale(2.4);
+    opacity: 0;
+  }
+}
+
+.map-marker-pin-head {
+  width: 36px;
+  height: 36px;
+  background: var(--color-emerald-deep);
+  border: 2px solid var(--color-gold-bright);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(9, 32, 23, 0.45), 0 0 10px rgba(212, 175, 55, 0.35);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.map-marker-pin-head:hover {
+  transform: rotate(-45deg) scale(1.1);
+  background: #0d2e21;
+}
+
+.map-marker-pin-head svg {
+  transform: rotate(45deg);
+  margin-top: -2px;
+  margin-left: -2px;
+}
+
+.map-marker-callout {
+  margin-bottom: 6px;
+  background: var(--color-emerald-deep);
+  color: var(--color-gold-bright);
+  font-family: var(--font-serif);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-gold);
+  white-space: nowrap;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  letter-spacing: 0.03em;
+  pointer-events: none;
+}
+
 .contact-map-footer {
   background: #fdfaf6;
   padding: 6px 12px;
@@ -3097,13 +3185,20 @@ body {
   }
 }
 
-/* Tablet (577px - 991px, e.g. 768px): Landscape framing to show chef under heat lamps with no tight zoom */
+/* Tablet (577px - 991px, e.g. 768px): Exact matching of desktop container ratio (546 / 480) & framing */
 @media (min-width: 577px) and (max-width: 991px) {
+  .about-chef-wrapper {
+    max-width: 546px;
+    margin: 0 auto;
+  }
+  .about-chef-image-frame {
+    width: 100%;
+    margin: 0 auto;
+  }
   .about-chef-img {
-    height: auto !important;
-    aspect-ratio: 16 / 11 !important;
-    max-height: 520px !important;
-    object-position: center 26% !important;
+    height: 480px !important;
+    aspect-ratio: 546 / 480 !important;
+    object-position: center 28% !important;
   }
 }
 
