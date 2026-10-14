@@ -64,6 +64,7 @@ export const GalleryPage: React.FC = () => {
         </div>
 
         {/* Gallery Grid */}
+        <h2 className="visually-hidden">Photo Gallery Showcase</h2>
         <div className="gallery-grid">
           {filteredItems.map((item) => (
             <div
@@ -77,9 +78,9 @@ export const GalleryPage: React.FC = () => {
               <img src={item.image} alt={item.title} loading="lazy" />
               <div className="gallery-card-overlay">
                 <Maximize2 size={28} color="var(--color-gold-bright)" style={{ marginBottom: '8px' }} />
-                <h5 style={{ fontFamily: 'var(--font-serif)', margin: '0 0 4px 0', fontSize: '1.15rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-serif)', margin: '0 0 4px 0', fontSize: '1.15rem' }}>
                   {item.title}
-                </h5>
+                </h3>
                 <span style={{ fontSize: '0.8rem', color: '#c3d3cb' }}>{item.category}</span>
               </div>
             </div>

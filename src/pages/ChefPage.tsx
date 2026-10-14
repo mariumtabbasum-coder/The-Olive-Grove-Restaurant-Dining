@@ -39,6 +39,7 @@ export const ChefPage: React.FC = () => {
 
       {/* Chefs Grid */}
       <div className="content-container pt-5">
+        <h2 className="visually-hidden">Our Master Chefs & Culinary Brigade</h2>
         <div className="row g-4 justify-content-center mb-5">
           {CHEFS.map((chef) => (
             <div key={chef.id} className="col-lg-4 col-md-6">
@@ -97,7 +98,7 @@ export const ChefPage: React.FC = () => {
 
                 {/* Chef Info Content */}
                 <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                  <h4
+                  <h3
                     style={{
                       fontFamily: 'var(--font-serif)',
                       color: 'var(--color-emerald-deep)',
@@ -107,7 +108,7 @@ export const ChefPage: React.FC = () => {
                     }}
                   >
                     {chef.name}
-                  </h4>
+                  </h3>
 
                   <div
                     style={{

@@ -68,7 +68,7 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
 
       <div className="dish-card-content">
         <span className="dish-card-category">{dish.category}</span>
-        <h4 className="dish-card-title">{dish.name}</h4>
+        <h3 className="dish-card-title">{dish.name}</h3>
         
         <div className="d-flex align-items-center justify-content-between mb-2">
           <div className="dish-card-price">${dish.price.toFixed(2)}</div>
