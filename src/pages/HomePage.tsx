@@ -151,7 +151,7 @@ export const HomePage: React.FC = () => {
               <h2 id="signature-dishes-heading" className="display-heading" style={{ fontSize: '2.4rem', color: 'var(--color-emerald-deep)' }}>
                 Our Signature Dishes
               </h2>
-              <p style={{ color: 'var(--color-text-muted)', maxWidth: '520px', margin: 0 }}>
+              <p style={{ color: '#384d41', maxWidth: '520px', margin: 0 }}>
                 A perfect blend of taste, tradition, and culinary creativity designed by Chef Daniel Carter.
               </p>
             </div>

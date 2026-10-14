@@ -653,6 +653,7 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   overflow: hidden;
   border-bottom: 1px solid var(--color-gold-border);
   text-align: center;
+  min-height: 480px;
 }
 
 .hero-home-bg-img {
@@ -853,9 +854,10 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 }
 
 .feature-box-desc {
-  font-size: 0.84rem;
-  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  color: #384d41;
   margin: 0;
+  line-height: 1.5;
 }
 
 /* ========================================================
@@ -992,7 +994,7 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 }
 
 .dish-card-rating-num {
-  color: var(--color-text-muted);
+  color: #384d41;
   font-size: 0.78rem;
   margin-left: 6px;
   font-weight: 600;
@@ -1152,10 +1154,11 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 .occasion-section {
   position: relative;
   background: linear-gradient(rgba(9, 32, 23, 0.88), rgba(9, 32, 23, 0.94)),
-              url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+              url('/assets/images/hero-home.webp') center/cover no-repeat;
   color: #ffffff;
   padding: 90px 0 70px 0;
   text-align: center;
+  min-height: 360px;
 }
 
 .occasion-content-box {
@@ -1183,6 +1186,7 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   padding: 40px 0;
   border-top: 1px solid rgba(197, 160, 89, 0.2);
   border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  min-height: 180px;
 }
 
 .stat-item {
@@ -1194,6 +1198,7 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   box-shadow: 0 4px 16px rgba(9, 32, 23, 0.04);
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
   height: 100%;
+  min-height: 130px;
 }
 
 .stat-item:hover {
@@ -1213,8 +1218,8 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 
 .stat-label {
   font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--color-gold);
+  font-weight: 700;
+  color: var(--color-gold-text-dark);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin: 0;
