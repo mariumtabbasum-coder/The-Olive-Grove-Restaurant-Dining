@@ -7,7 +7,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { ScrollReveal } from './components/ScrollReveal';
 import { ToastAlert } from './components/ToastAlert';
 
-import { HomePage } from './pages/HomePage';
+const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
 
 const MenuPage = lazy(() => import('./pages/MenuPage').then(m => ({ default: m.MenuPage })));
 const AboutPage = lazy(() => import('./pages/AboutPage').then(m => ({ default: m.AboutPage })));

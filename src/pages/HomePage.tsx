@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { Link } from 'react-router-dom';
 import { DISHES } from '../data/dishes';
 import { Dish } from '../types';
 import { DishCard } from '../components/DishCard';
-import { DishModal } from '../components/DishModal';
-import { AmbienceModal } from '../components/AmbienceModal';
-import { StoryModal } from '../components/StoryModal';
 import { WaveDivider } from '../components/WaveDivider';
 import { BotanicalLeaf } from '../components/BotanicalLeaf';
 import {
@@ -16,6 +13,11 @@ import {
   ArrowRight,
   BookOpen,
 } from 'lucide-react';
+
+// Performance Optimization: Modals are lazily imported only when requested by user interaction
+const DishModal = lazy(() => import('../components/DishModal').then((m) => ({ default: m.DishModal })));
+const AmbienceModal = lazy(() => import('../components/AmbienceModal').then((m) => ({ default: m.AmbienceModal })));
+const StoryModal = lazy(() => import('../components/StoryModal').then((m) => ({ default: m.StoryModal })));
 
 export const HomePage: React.FC = () => {
   const [selectedDish, setSelectedDish] = useState<Dish | null>(null);
@@ -29,12 +31,16 @@ export const HomePage: React.FC = () => {
     <main>
       {/* 1. HERO SECTION — CLEAN FULL BACKGROUND WITH ELEGANT OVERLAY */}
       <section className="hero-home-wrapper">
+        {/* Maximum LCP Optimization: Local compressed WebP, eager loading, high priority, explicit dimensions */}
         <img
-          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=70"
-          alt=""
+          src="/assets/images/hero-home.webp"
+          alt="The Olive Grove dining room and warm candlelight atmosphere"
           className="hero-home-bg-img"
           fetchPriority="high"
-          decoding="async"
+          loading="eager"
+          decoding="sync"
+          width="1280"
+          height="800"
           aria-hidden="true"
         />
         <div className="hero-home-overlay" />
@@ -77,15 +83,20 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 2. ROW OF 4 FEATURE BOXES */}
-      <section className="features-section-bar">
+      <section className="features-section-bar" aria-labelledby="features-heading">
         <div className="content-container">
+          {/* Accessibility: Semantic H2 establishes sequential hierarchy after H1 */}
+          <h2 id="features-heading" className="visually-hidden">
+            Why Choose The Olive Grove
+          </h2>
           <div className="row g-4">
             <div className="col-lg-3 col-sm-6">
               <div className="feature-box-card">
                 <div className="feature-icon-circle">
                   <Sparkles size={22} />
                 </div>
-                <h5 className="feature-box-title">Fresh Ingredients Always</h5>
+                {/* Accessibility: H3 correctly nests under H2 */}
+                <h3 className="feature-box-title">Fresh Ingredients Always</h3>
                 <p className="feature-box-desc">
                   Sourced daily from certified organic farmers and local artisan growers.
                 </p>
@@ -97,7 +108,7 @@ export const HomePage: React.FC = () => {
                 <div className="feature-icon-circle">
                   <Award size={22} />
                 </div>
-                <h5 className="feature-box-title">Expert Chefs & Masters</h5>
+                <h3 className="feature-box-title">Expert Chefs & Masters</h3>
                 <p className="feature-box-desc">
                   Internationally trained culinary artisans passionate about authentic taste.
                 </p>
@@ -109,7 +120,7 @@ export const HomePage: React.FC = () => {
                 <div className="feature-icon-circle">
                   <Coffee size={22} />
                 </div>
-                <h5 className="feature-box-title">Cozy Ambience & Vibes</h5>
+                <h3 className="feature-box-title">Cozy Ambience & Vibes</h3>
                 <p className="feature-box-desc">
                   Intimate candlelit dining spaces, lush botanicals, and warm acoustic soul.
                 </p>
@@ -121,7 +132,7 @@ export const HomePage: React.FC = () => {
                 <div className="feature-icon-circle">
                   <Heart size={22} />
                 </div>
-                <h5 className="feature-box-title">Unforgettable Moments</h5>
+                <h3 className="feature-box-title">Unforgettable Moments</h3>
                 <p className="feature-box-desc">
                   Every celebration and quiet dinner is treated like family hospitality.
                 </p>
@@ -132,22 +143,23 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 3. OUR SIGNATURE DISHES */}
-      <section className="section-cream py-5">
+      <section className="section-cream py-5" aria-labelledby="signature-dishes-heading">
         <div className="content-container">
           <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
             <div>
               <span className="eyebrow-text">Handcrafted Selections</span>
-              <h2 className="display-heading" style={{ fontSize: '2.4rem', color: 'var(--color-emerald-deep)' }}>
+              <h2 id="signature-dishes-heading" className="display-heading" style={{ fontSize: '2.4rem', color: 'var(--color-emerald-deep)' }}>
                 Our Signature Dishes
               </h2>
               <p style={{ color: 'var(--color-text-muted)', maxWidth: '520px', margin: 0 }}>
                 A perfect blend of taste, tradition, and culinary creativity designed by Chef Daniel Carter.
               </p>
             </div>
+            {/* Contrast Optimization: High contrast amber-gold (>= 4.5:1 WCAG AA) */}
             <Link
               to="/menu"
               className="mt-3 mt-md-0 fw-bold d-inline-flex align-items-center gap-1"
-              style={{ color: 'var(--color-gold)', textDecoration: 'none' }}
+              style={{ color: 'var(--color-gold-text-dark)', textDecoration: 'none' }}
             >
               <span>View Full Menu</span>
               <ArrowRight size={17} />
@@ -168,11 +180,11 @@ export const HomePage: React.FC = () => {
       <WaveDivider type="cream-to-green" />
 
       {/* 4. A PLACE FOR EVERY OCCASION */}
-      <section className="occasion-section">
+      <section className="occasion-section" aria-labelledby="occasion-heading">
         <div className="content-container">
           <div className="occasion-content-box">
             <span className="eyebrow-text">Memorable Atmosphere</span>
-            <h2 className="occasion-heading">A Place for Every Occasion</h2>
+            <h2 id="occasion-heading" className="occasion-heading">A Place for Every Occasion</h2>
             <p className="occasion-desc">
               Whether it's a romantic dinner under candlelight, a joyous family celebration, or an executive luncheon, we make every second memorable with personalized attention.
             </p>
@@ -198,8 +210,11 @@ export const HomePage: React.FC = () => {
       <WaveDivider type="green-to-cream" />
 
       {/* 5. STATS BAR */}
-      <section className="stats-bar-wrapper">
+      <section className="stats-bar-wrapper" aria-labelledby="stats-heading">
         <div className="content-container">
+          <h2 id="stats-heading" className="visually-hidden">
+            Restaurant Milestones and Guest Satisfaction
+          </h2>
           <div className="row g-4 justify-content-center">
             <div className="col-lg-3 col-6">
               <div className="stat-item">
@@ -229,17 +244,27 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* SHARED DISH MODAL */}
-      <DishModal dish={selectedDish} onClose={() => setSelectedDish(null)} />
+      {/* LAZY LOADED MODALS — Evaluated & rendered on-demand only */}
+      {selectedDish && (
+        <Suspense fallback={null}>
+          <DishModal dish={selectedDish} onClose={() => setSelectedDish(null)} />
+        </Suspense>
+      )}
 
-      {/* CURATED AMBIENCE LIGHTBOX MODAL */}
-      <AmbienceModal
-        isOpen={ambienceOpen}
-        onClose={() => setAmbienceOpen(false)}
-      />
+      {ambienceOpen && (
+        <Suspense fallback={null}>
+          <AmbienceModal
+            isOpen={ambienceOpen}
+            onClose={() => setAmbienceOpen(false)}
+          />
+        </Suspense>
+      )}
 
-      {/* DEDICATED FULL CONTENT STORY MODAL */}
-      <StoryModal isOpen={storyOpen} onClose={() => setStoryOpen(false)} />
+      {storyOpen && (
+        <Suspense fallback={null}>
+          <StoryModal isOpen={storyOpen} onClose={() => setStoryOpen(false)} />
+        </Suspense>
+      )}
     </main>
   );
 };

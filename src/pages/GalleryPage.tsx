@@ -27,7 +27,9 @@ export const GalleryPage: React.FC = () => {
           alt=""
           className="page-hero-bg-img"
           fetchPriority="high"
+          loading="eager"
           decoding="async"
+          crossOrigin="anonymous"
           aria-hidden="true"
         />
         <div className="page-hero-overlay" />
@@ -74,12 +76,20 @@ export const GalleryPage: React.FC = () => {
               tabIndex={0}
               aria-label={`View photo: ${item.title}`}
             >
-              <img src={item.image} alt={item.title} loading="lazy" />
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                decoding="async"
+                width="600"
+                height="400"
+                crossOrigin="anonymous"
+              />
               <div className="gallery-card-overlay">
                 <Maximize2 size={28} color="var(--color-gold-bright)" style={{ marginBottom: '8px' }} />
-                <h5 style={{ fontFamily: 'var(--font-serif)', margin: '0 0 4px 0', fontSize: '1.15rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-serif)', margin: '0 0 4px 0', fontSize: '1.15rem' }}>
                   {item.title}
-                </h5>
+                </h3>
                 <span style={{ fontSize: '0.8rem', color: '#c3d3cb' }}>{item.category}</span>
               </div>
             </div>

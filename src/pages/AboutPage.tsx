@@ -13,7 +13,9 @@ export const AboutPage: React.FC = () => {
           alt=""
           className="page-hero-bg-img"
           fetchPriority="high"
+          loading="eager"
           decoding="async"
+          crossOrigin="anonymous"
           aria-hidden="true"
         />
         <div className="page-hero-overlay" />
@@ -74,6 +76,8 @@ export const AboutPage: React.FC = () => {
                     alt="Chef Daniel Carter crafting gourmet dishes under warm copper heat lamps"
                     loading="lazy"
                     decoding="async"
+                    width="546"
+                    height="480"
                     className="about-chef-img"
                   />
                 </div>

@@ -155,7 +155,9 @@ export const ReservationPage: React.FC = () => {
           alt=""
           className="page-hero-bg-img"
           fetchPriority="high"
+          loading="eager"
           decoding="async"
+          crossOrigin="anonymous"
           aria-hidden="true"
         />
         <div className="page-hero-overlay" />

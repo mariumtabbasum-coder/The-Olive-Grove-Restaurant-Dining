@@ -23,7 +23,9 @@ export const PageHeader: React.FC<PageHeaderProps> = ({
         alt=""
         className="page-hero-bg-img"
         fetchPriority="high"
+        loading="eager"
         decoding="async"
+        crossOrigin="anonymous"
         aria-hidden="true"
       />
       {/* Dark Emerald Gradient Overlay */}

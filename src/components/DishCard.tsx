@@ -37,11 +37,15 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
       aria-label={`View details for ${dish.name}`}
     >
       <div className="dish-card-image-box">
+        {/* Performance & CLS optimization: explicit width/height and crossOrigin */}
         <img
           src={dish.image}
           alt={dish.name}
           loading="lazy"
           decoding="async"
+          width="400"
+          height="280"
+          crossOrigin="anonymous"
           className={`dish-card-img dish-img-${dish.id}`}
           style={{
             objectPosition: dish.objectPosition || 'center center',
@@ -68,7 +72,8 @@ export const DishCard: React.FC<DishCardProps> = ({ dish, onSelect }) => {
 
       <div className="dish-card-content">
         <span className="dish-card-category">{dish.category}</span>
-        <h4 className="dish-card-title">{dish.name}</h4>
+        {/* Accessibility: H3 preserves sequential hierarchy H1 -> H2 -> H3 under section H2 */}
+        <h3 className="dish-card-title">{dish.name}</h3>
         
         <div className="d-flex align-items-center justify-content-between mb-2">
           <div className="dish-card-price">${dish.price.toFixed(2)}</div>

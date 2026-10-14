@@ -11,6 +11,7 @@
   --color-gold: #c5a059;
   --color-gold-bright: #d4af37;
   --color-gold-light: #f4e8cf;
+  --color-gold-text-dark: #7a5712;
   --color-gold-border: rgba(197, 160, 89, 0.4);
   --color-terracotta: #c26d53;
   --color-text-dark: #12241b;
@@ -23,6 +24,18 @@
   --radius-lg: 26px;
   --radius-pill: 9999px;
   --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 * {
@@ -620,10 +633,15 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   font-size: 0.82rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-gold-bright);
   font-weight: 600;
   display: inline-block;
   margin-bottom: 12px;
+}
+
+.section-cream .eyebrow-text,
+.section-cream-alt .eyebrow-text {
+  color: var(--color-gold-text-dark);
 }
 
 /* Hero Section (Home) */
@@ -698,8 +716,8 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 
 .btn-primary-gold {
   background: var(--color-gold);
-  color: var(--color-emerald-deep);
-  font-weight: 600;
+  color: #061811;
+  font-weight: 700;
   font-size: 0.95rem;
   border-radius: var(--radius-pill);
   padding: 12px 28px;
@@ -929,7 +947,7 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-gold-text-dark);
   font-weight: 700;
   margin-bottom: 4px;
 }
@@ -962,7 +980,7 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 .dish-card-price {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-gold);
+  color: var(--color-emerald-deep);
 }
 
 .dish-card-stars {

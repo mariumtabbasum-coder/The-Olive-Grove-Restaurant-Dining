@@ -49,6 +49,7 @@ export const NewsletterPage: React.FC = () => {
           alt="VIP table setting with wine and culinary welcome privileges"
           className="page-hero-bg-img newsletter-hero-bg"
           fetchPriority="high"
+          loading="eager"
           decoding="async"
           aria-hidden="true"
         />

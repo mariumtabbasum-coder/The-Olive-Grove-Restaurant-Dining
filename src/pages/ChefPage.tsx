@@ -17,6 +17,7 @@ export const ChefPage: React.FC = () => {
           alt="Culinary team preparing gourmet cuisine in fine dining kitchen"
           className="page-hero-bg-img chefs-hero-bg"
           fetchPriority="high"
+          loading="eager"
           decoding="async"
           aria-hidden="true"
         />
@@ -68,6 +69,9 @@ export const ChefPage: React.FC = () => {
                     alt={chef.name}
                     loading="lazy"
                     decoding="async"
+                    width="400"
+                    height="360"
+                    crossOrigin="anonymous"
                     className={`chef-card-photo chef-photo-${chef.id}`}
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: chef.objectPosition || 'center 25%' }}
                   />
@@ -97,7 +101,7 @@ export const ChefPage: React.FC = () => {
 
                 {/* Chef Info Content */}
                 <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                  <h4
+                  <h3
                     style={{
                       fontFamily: 'var(--font-serif)',
                       color: 'var(--color-emerald-deep)',
@@ -107,7 +111,7 @@ export const ChefPage: React.FC = () => {
                     }}
                   >
                     {chef.name}
-                  </h4>
+                  </h3>
 
                   <div
                     style={{
