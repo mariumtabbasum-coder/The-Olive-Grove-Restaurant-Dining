@@ -29,22 +29,14 @@ export const HomePage: React.FC = () => {
     <main>
       {/* 1. HERO SECTION — CLEAN FULL BACKGROUND WITH ELEGANT OVERLAY */}
       <section className="hero-home-wrapper">
-        <picture>
-          <source
-            type="image/webp"
-            srcSet="/assets/images/hero-home-640.webp 640w, /assets/images/hero-home-960.webp 960w, /assets/images/hero-home.webp 1200w"
-            sizes="100vw"
-          />
-          <img
-            src="/assets/images/hero-home.jpg"
-            alt="Warm ambient dining room at The Olive Grove"
-            className="hero-home-bg-img"
-            fetchPriority="high"
-            decoding="async"
-            width={1200}
-            height={680}
-          />
-        </picture>
+        <img
+          src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=70"
+          alt=""
+          className="hero-home-bg-img"
+          fetchPriority="high"
+          decoding="async"
+          aria-hidden="true"
+        />
         <div className="hero-home-overlay" />
 
         {/* Decorative Gold Leaf in Top-Left Corner */}
@@ -85,8 +77,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 2. ROW OF 4 FEATURE BOXES */}
-      <section className="features-section-bar" aria-labelledby="features-heading">
-        <h2 id="features-heading" className="visually-hidden">Why Dine at The Olive Grove</h2>
+      <section className="features-section-bar">
         <div className="content-container">
           <div className="row g-4">
             <div className="col-lg-3 col-sm-6">
@@ -94,7 +85,7 @@ export const HomePage: React.FC = () => {
                 <div className="feature-icon-circle">
                   <Sparkles size={22} />
                 </div>
-                <h3 className="feature-box-title">Fresh Ingredients Always</h3>
+                <h5 className="feature-box-title">Fresh Ingredients Always</h5>
                 <p className="feature-box-desc">
                   Sourced daily from certified organic farmers and local artisan growers.
                 </p>
@@ -106,7 +97,7 @@ export const HomePage: React.FC = () => {
                 <div className="feature-icon-circle">
                   <Award size={22} />
                 </div>
-                <h3 className="feature-box-title">Expert Chefs & Masters</h3>
+                <h5 className="feature-box-title">Expert Chefs & Masters</h5>
                 <p className="feature-box-desc">
                   Internationally trained culinary artisans passionate about authentic taste.
                 </p>
@@ -118,7 +109,7 @@ export const HomePage: React.FC = () => {
                 <div className="feature-icon-circle">
                   <Coffee size={22} />
                 </div>
-                <h3 className="feature-box-title">Cozy Ambience & Vibes</h3>
+                <h5 className="feature-box-title">Cozy Ambience & Vibes</h5>
                 <p className="feature-box-desc">
                   Intimate candlelit dining spaces, lush botanicals, and warm acoustic soul.
                 </p>
@@ -130,7 +121,7 @@ export const HomePage: React.FC = () => {
                 <div className="feature-icon-circle">
                   <Heart size={22} />
                 </div>
-                <h3 className="feature-box-title">Unforgettable Moments</h3>
+                <h5 className="feature-box-title">Unforgettable Moments</h5>
                 <p className="feature-box-desc">
                   Every celebration and quiet dinner is treated like family hospitality.
                 </p>
@@ -156,7 +147,7 @@ export const HomePage: React.FC = () => {
             <Link
               to="/menu"
               className="mt-3 mt-md-0 fw-bold d-inline-flex align-items-center gap-1"
-              style={{ color: 'var(--color-gold-text)', textDecoration: 'none' }}
+              style={{ color: 'var(--color-gold)', textDecoration: 'none' }}
             >
               <span>View Full Menu</span>
               <ArrowRight size={17} />

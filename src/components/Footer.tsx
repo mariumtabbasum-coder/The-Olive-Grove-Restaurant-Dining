@@ -5,8 +5,7 @@ import { BotanicalLeaf } from './BotanicalLeaf';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="footer-wrapper" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="visually-hidden">Footer Navigation & Location Information</h2>
+    <footer className="footer-wrapper">
       <div className="content-container">
         <div className="row g-4 justify-content-between">
           {/* Col 1: Brand & Bio */}
@@ -52,7 +51,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Quick Links */}
           <div className="col-lg-2 col-md-3 col-6">
-            <h3 className="footer-col-title">Quick Links</h3>
+            <h5 className="footer-col-title">Quick Links</h5>
             <ul className="footer-links-list">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/menu">Menu</Link></li>
@@ -66,7 +65,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Explore */}
           <div className="col-lg-2 col-md-3 col-6">
-            <h3 className="footer-col-title">Explore</h3>
+            <h5 className="footer-col-title">Explore</h5>
             <ul className="footer-links-list">
               <li><Link to="/reservation">Reservation</Link></li>
               <li><Link to="/cart">My Cart</Link></li>
@@ -79,7 +78,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Opening Hours */}
           <div className="col-lg-3 col-md-6">
-            <h3 className="footer-col-title">Opening Hours</h3>
+            <h5 className="footer-col-title">Opening Hours</h5>
             <div className="footer-hours-row">
               <span>Mon – Thu</span>
               <span className="text-white">10:00 AM – 11:00 PM</span>

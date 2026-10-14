@@ -9,13 +9,12 @@
   --color-cream-card: #ffffff;
   --color-cream-alt: #f3ece0;
   --color-gold: #c5a059;
-  --color-gold-text: #87621c;
   --color-gold-bright: #d4af37;
   --color-gold-light: #f4e8cf;
   --color-gold-border: rgba(197, 160, 89, 0.4);
   --color-terracotta: #c26d53;
   --color-text-dark: #12241b;
-  --color-text-muted: #475a50;
+  --color-text-muted: #5e7066;
   --color-text-light: #f7f3eb;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -621,18 +620,10 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   font-size: 0.82rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-gold-text);
-  font-weight: 700;
+  color: var(--color-gold);
+  font-weight: 600;
   display: inline-block;
   margin-bottom: 12px;
-}
-
-/* Bright gold on dark-green backgrounds for high contrast */
-.hero-home-content .eyebrow-text,
-.page-hero-banner .eyebrow-text,
-.occasion-content-box .eyebrow-text,
-.modal-overlay-custom .eyebrow-text {
-  color: var(--color-gold-bright);
 }
 
 /* Hero Section (Home) */
@@ -938,7 +929,7 @@ h1, h2, h3, h4, .font-serif, .display-heading {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-gold-text);
+  color: var(--color-gold);
   font-weight: 700;
   margin-bottom: 4px;
 }
@@ -971,7 +962,7 @@ h1, h2, h3, h4, .font-serif, .display-heading {
 .dish-card-price {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-gold-text);
+  color: var(--color-gold);
 }
 
 .dish-card-stars {

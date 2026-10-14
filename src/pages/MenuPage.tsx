@@ -57,7 +57,6 @@ export const MenuPage: React.FC = () => {
 
       {/* Main Content Area */}
       <div className="content-container pt-5">
-        <h2 className="visually-hidden">Culinary Selections by Category</h2>
         {/* Working Filter Pills */}
         <div className="filter-pills-row">
           {categories.map((cat) => (

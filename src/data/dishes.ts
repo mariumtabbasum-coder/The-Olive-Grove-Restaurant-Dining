@@ -13,7 +13,7 @@ export const DISHES: Dish[] = [
     calories: '540 kcal',
     description: 'Handcrafted fettuccine tossed in a rich wild forest mushroom medley, black summer truffle emulsion, fresh thyme, and aged Parmigiano-Reggiano shavings.',
     ingredients: 'Fettuccine pasta, wild mushrooms, black summer truffle oil, heavy cream, garlic, Parmigiano-Reggiano, fresh thyme, sea salt.',
-    image: '/assets/images/dishes/truffle-mushroom-pasta.webp',
+    image: 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=75',
     isSignature: true,
   },
   {
@@ -44,7 +44,7 @@ export const DISHES: Dish[] = [
     calories: '510 kcal',
     description: 'Free-range chicken breast marinated in fresh garden rosemary, oregano, pressed lemons, and slow-roasted to golden perfection with rosemary baby potatoes.',
     ingredients: 'Free-range chicken breast, Meyer lemon juice, fresh rosemary, wild oregano, roasted baby potatoes, extra virgin olive oil, garlic.',
-    image: '/assets/images/dishes/lemon-herb-chicken.webp',
+    image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=600&q=75',
     isSignature: true,
   },
   {
@@ -59,7 +59,7 @@ export const DISHES: Dish[] = [
     calories: '420 kcal',
     description: 'Decadent dark Belgian molten chocolate cake with a velvety warm ganache core, accompanied by Madagascar vanilla bean gelato and fresh raspberry reduction.',
     ingredients: '70% Belgian dark chocolate, sweet cream butter, cage-free eggs, organic cane sugar, pure vanilla extract, Madagascar vanilla gelato.',
-    image: '/assets/images/dishes/chocolate-lava-cake.webp',
+    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=75',
     isSignature: true,
   },
   {
